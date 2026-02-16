@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Stack Assignment</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Stack Assignment</h1>
+    <nav>
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h2>Professional Academic & Project Assistance</h2>
+    <p>Assignments | Projects | Reports | Coding | Research</p>
+    <button onclick="scrollToContact()">Get Started</button>
+</section>
+
+<section id="services">
+    <h2>Our Services</h2>
+    <div class="cards">
+        <div class="card">
+            <h3>Assignments</h3>
+            <p>High-quality academic assignment solutions.</p>
+        </div>
+        <div class="card">
+            <h3>Projects</h3>
+            <p>Full project development with documentation.</p>
+        </div>
+        <div class="card">
+            <h3>Programming</h3>
+            <p>Python, Java, Web Development & more.</p>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <h2>About Us</h2>
+    <p>We provide reliable academic and technical support for students worldwide. 
+    Fast delivery, quality work, and affordable pricing.</p>
+</section>
+
+<section id="contact">
+    <h2>Contact Us</h2>
+    <p>Email: support@stackassignment.com</p>
+    <p>WhatsApp: +91-XXXXXXXXXX</p>
+</section>
+
+<!-- Chatbot Button -->
+<div class="chatbot-button" onclick="toggleChat()">💬</div>
+
+<!-- Chatbot Box -->
+<div class="chatbox" id="chatbox">
+    <div class="chat-header">Stack Assistant</div>
+    <div class="chat-body" id="chatBody"></div>
+    <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKey(event)">
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
