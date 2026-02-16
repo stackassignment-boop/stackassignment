@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog - Stack Assignment | Academic Writing Tips & Guides</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 600: '#4f46e5', 700: '#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- ================== SHARED HEADER ================== -->
+  <div id="header-placeholder">Loading navigation…</div>
+
+  <!-- ================== MAIN CONTENT ================== -->
+  <main class="flex-grow py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      <!-- Page Header -->
+      <div class="text-center mb-12 md:mb-16">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Academic Writing Blog</h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+          Practical tips, guides, referencing help, study strategies and updates for students
+        </p>
+      </div>
+
+      <!-- Blog Posts Grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        
+        <!-- Post 1 -->
+        <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <div class="h-48 bg-gradient-to-br from-indigo-500 to-purple-600"></div>
+          <div class="p-6 md:p-7">
+            <div class="text-sm text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+              Study Hacks • February 10, 2026
+            </div>
+            <h2 class="text-2xl font-bold mb-3 line-clamp-2">
+              How to Finish a 10,000-Word Dissertation in Under 30 Days (Realistic Plan)
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-5 line-clamp-3">
+              A step-by-step timetable that actually works — including daily word targets, Pomodoro + breaks, chapter outlining templates, and when to use reference managers vs AI tools…
+            </p>
+            <a href="#" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+              Read full article →
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 2 -->
+        <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <div class="h-48 bg-gradient-to-br from-blue-500 to-cyan-600"></div>
+          <div class="p-6 md:p-7">
+            <div class="text-sm text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+              Referencing • January 28, 2026
+            </div>
+            <h2 class="text-2xl font-bold mb-3 line-clamp-2">
+              APA 7th vs Harvard vs MLA vs Chicago – 2026 Quick Comparison Chart
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-5 line-clamp-3">
+              Side-by-side examples for in-text citations, reference list entries, DOIs, URLs, et al. usage, and the most common mistakes Indian students make in each style…
+            </p>
+            <a href="#" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+              Read full article →
+            </a>
+          </div>
+        </article>
+
+        <!-- Post 3 -->
+        <article class="bg-white dark:bg-slate-800 rounded-2xl shadow-lg overflow-hidden transition hover:shadow-xl">
+          <div class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600"></div>
+          <div class="p-6 md:p-7">
+            <div class="text-sm text-indigo-600 dark:text-indigo-400 font-medium mb-2">
+              Exam Preparation • January 15, 2026
+            </div>
+            <h2 class="text-2xl font-bold mb-3 line-clamp-2">
+              How to Score 80+ in Online Proctored Exams (Without Cheating)
+            </h2>
+            <p class="text-gray-600 dark:text-gray-300 mb-5 line-clamp-3">
+              Browser lockdown tips • virtual background tricks • note organization • time management during 3-hour exams • what invigilators actually look for…
+            </p>
+            <a href="#" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+              Read full article →
+            </a>
+          </div>
+        </article>
+
+        <!-- You can add 3–6 more article cards following the same pattern -->
+
+      </div>
+
+      <!-- Pagination / More button -->
+      <div class="text-center mt-12 md:mt-16">
+        <button class="bg-indigo-600 hover:bg-indigo-700 text-white px-10 py-4 rounded-xl text-lg font-semibold transition shadow-md">
+          Load More Articles
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <!-- ================== SHARED FOOTER ================== -->
+  <div id="footer-placeholder">Loading footer…</div>
+
+  <!-- ================== LOAD SHARED COMPONENTS ================== -->
+  <script>
+    // Load header
+    fetch('header.html')
+      .then(r => {
+        if (!r.ok) throw new Error('Header file not found');
+        return r.text();
+      })
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+        // Re-initialize theme & menu after header loads
+        if (typeof initThemeAndMenu === 'function') {
+          initThemeAndMenu();
+        }
+      })
+      .catch(err => {
+        console.error('Header load error:', err);
+        document.getElementById('header-placeholder').innerHTML = 
+          '<div class="bg-red-600 text-white p-4 text-center">Failed to load navigation</div>';
+      });
+
+    // Load footer (contains theme/menu script)
+    fetch('footer.html')
+      .then(r => {
+        if (!r.ok) throw new Error('Footer file not found');
+        return r.text();
+      })
+      .then(html => {
+        document.getElementById('footer-placeholder').innerHTML = html;
+      })
+      .catch(err => {
+        console.error('Footer load error:', err);
+        document.getElementById('footer-placeholder').innerHTML = 
+          '<div class="bg-red-600 text-white p-4 text-center">Failed to load footer</div>';
+      });
+  </script>
+
+</body>
+</html>
