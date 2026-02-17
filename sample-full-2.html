@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Full Sample Preview - Chronic Care Nursing Policy Report</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: { 600: '#4f46e5', 700: '#4338ca' }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    .blurred-content {
+      filter: blur(8px);
+      pointer-events: none;
+      user-select: none;
+    }
+    .page-section {
+      margin-bottom: 2.5rem;
+      padding: 1.5rem;
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    }
+    .dark .page-section {
+      background: #1e293b;
+      border-color: #334155;
+    }
+    .fade-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 140px;
+      background: linear-gradient(to bottom, transparent, white);
+      pointer-events: none;
+    }
+    .dark .fade-overlay {
+      background: linear-gradient(to bottom, transparent, #0f172a);
+    }
+    img.page-image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body class="bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 min-h-screen flex flex-col">
+
+  <!-- Shared Header -->
+  <div id="header-placeholder">Loading navigation…</div>
+
+  <main class="flex-grow py-12 md:py-16">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <h1 class="text-3xl md:text-4xl font-bold mb-3">Chronic Care Nursing – Policy Analysis & Implementation Report</h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400">
+          First 3 pages fully visible • remaining pages blurred (images remain visible)
+        </p>
+      </div>
+
+      <div class="space-y-10">
+
+        <!-- Page 1 – Clear -->
+        <div class="page-section">
+          <h3 class="text-xl font-bold mb-4 text-center">Page 1</h3>
+          <div class="text-center space-y-3">
+            <p class="text-2xl font-bold">Chronic Care Nursing</p>
+            <p class="text-xl">Policy Analysis and Implementation Report</p>
+          </div>
+          <!-- No image for page 1 -->
+        </div>
+
+        <!-- Page 2 – Clear -->
+        <div class="page-section">
+          <h3 class="text-xl font-bold mb-4 text-center">Page 2</h3>
+          <div class="space-y-2">
+            <p class="font-bold text-lg mb-3"># Table of Contents</p>
+            <p>Chronic Care Nursing.................................................................................. 1</p>
+            <p>Policy Analysis and Implementation Report.................................................. 1</p>
+            <p>1. Analysis of the correct policy .................................................................. 3</p>
+            <p>2. PHN needs assessment results ................................................................. 4</p>
+            <p>3. Identified challenge/gap for chosen priority population group ................. 7</p>
+            <p>4. Proposed policy improvement solutions (3) to address local challenge/gap ................................................................................................. 9</p>
+            <p>5. Conclusion and reflection ........................................................................ 11</p>
+            <p>References.................................................................................................... 12</p>
+          </div>
+          <!-- No image for page 2 -->
+        </div>
+
+        <!-- Page 3 – Clear -->
+        <div class="page-section">
+          <h3 class="text-xl font-bold mb-4 text-center">Page 3</h3>
+          <div class="space-y-4">
+            <p class="font-bold">1. Analysis of the correct policy</p>
+            <p><strong>Policy name:</strong> National Strategic Framework for Chronic Conditions</p>
+            <p><strong>Purpose and objectives:</strong> The National Strategic Framework for Chronic Conditions (the Framework) is Australia's framework policy guiding actions to reduce the impacts of chronic conditions and improve the health outcomes of Australians. The Framework's main aim is to ensure collaborative, person-centered, and sustainable chronic care. The Framework establishes three interrelated objectives:</p>
+            <ol class="list-decimal pl-6 space-y-2">
+              <li>Prevention for all Australians,</li>
+              <li>Efficient, effective, and appropriate care for individuals living with chronic conditions, and</li>
+              <li>Priority populations at risk of experiencing poor health outcomes.</li>
+            </ol>
+            <p>These objectives are oriented toward addressing the increasing burden of chronic disease in Australia, since chronic conditions are the largest contributing factor to illness, disability, and death. The policy seeks to align the actions of governments, health professionals, and communities to deliver better-integrated care that emphasizes prevention, health literacy, and self-management.</p>
+          </div>
+          <!-- Image for page 3 -->
+          <img src="image/Page_3.jpg" alt="Page 3 diagram" class="page-image mx-auto">
+        </div>
+
+        <!-- Pages 4–14 – Blurred text, visible images -->
+        <div class="page-section relative">
+          <h3 class="text-xl font-bold mb-4 text-center">Pages 4–14 (Blurred Preview)</h3>
+          <div class="blurred-content space-y-6 text-sm leading-relaxed">
+            <p>• Key aspects relevant to local context: Several components of the policy are noteworthy in the context of Primary Health Tasmania...</p>
+            <p>• Selected PHN: Primary Health Tasmania Needs Assessment 2022–25</p>
+            <p>Tasmania's population of approximately 557,000 people has a higher proportion of people aged 60 or over...</p>
+            <p>• Demographic overview: Tasmania's estimated population is about 557,000 people...</p>
+            <p>• Prevalence of chronic/life-limiting conditions: Tasmania has the highest proportion of adults reporting fair or poor health...</p>
+            <p>• Challenges specific to chronic conditions: Primary Health Tasmania identifies multiple barriers to care...</p>
+            <p>• Identified challenge/gap for chosen priority population group: Limited digital health literacy and access...</p>
+            <p>• Proposed policy improvement solutions (3) to address local challenge/gap: Solution 1: Digital Health Navigators...</p>
+            <p>• Solution 2: Mobile Multidisciplinary Chronic Care Outreach Clinics...</p>
+            <p>• Solution 3: Peer-led Chronic Condition Support Groups...</p>
+            <p>• Conclusion and reflection: This report has investigated the difficulties around executing a national chronic care policy...</p>
+            <p>• References: Dykgraaf, S. H., et al. (2022)...</p>
+          </div>
+          <div class="space-y-8 mt-8">
+            <!-- Visible images for blurred pages -->
+            <img src="image/Page_5.jpg" alt="Page 5 diagram" class="page-image mx-auto">
+            <img src="image/Page_8.jpg" alt="Page 8 diagram" class="page-image mx-auto">
+          </div>
+          <div class="fade-overlay"></div>
+        </div>
+
+        <!-- Contact Admin Section -->
+        <div class="mt-12 p-8 bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800 rounded-2xl text-center">
+          <h3 class="text-2xl font-bold text-yellow-800 dark:text-yellow-200 mb-4">
+            Want the Full Unblurred PDF?
+          </h3>
+          <p class="text-lg text-gray-700 dark:text-gray-300 mb-6">
+            The complete clear version (14 pages) is available upon request. Please contact the admin.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-6 justify-center">
+            <a href="https://wa.me/919126943297?text=Hi%2C%20I%20want%20the%20full%20unblurred%20PDF%20of%20Chronic%20Care%20Nursing%20sample%20(14%20pages)" 
+               target="_blank"
+               class="inline-flex items-center gap-3 bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-xl font-medium text-lg transition shadow-md">
+              <i class="fab fa-whatsapp text-2xl"></i>
+              WhatsApp Admin
+            </a>
+            <a href="mailto:support@stackassignment.com?subject=Request%20Full%20Clear%20PDF%20-%20Chronic%20Care%20Nursing%20Sample"
+               class="inline-flex items-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-xl font-medium text-lg transition shadow-md">
+              <i class="fas fa-envelope text-xl"></i>
+              Email Admin
+            </a>
+          </div>
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="samples.html" class="text-indigo-600 dark:text-indigo-400 hover:underline text-lg font-medium">
+            ← Back to Samples List
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Shared Footer -->
+  <div id="footer-placeholder">Loading footer…</div>
+
+  <!-- Load shared components -->
+  <script>
+    fetch('header.html')
+      .then(r => r.ok ? r.text() : Promise.reject('Header failed'))
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+        if (typeof initThemeAndMenu === 'function') initThemeAndMenu();
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('header-placeholder').innerHTML = '<div class="bg-red-600 text-white p-4 text-center">Navigation load failed</div>';
+      });
+
+    fetch('footer.html')
+      .then(r => r.ok ? r.text() : Promise.reject('Footer failed'))
+      .then(html => document.getElementById('footer-placeholder').innerHTML = html)
+      .catch(err => {
+        console.error(err);
+        document.getElementById('footer-placeholder').innerHTML = '<div class="bg-red-600 text-white p-4 text-center">Footer load failed</div>';
+      });
+  </script>
+</body>
+</html>
