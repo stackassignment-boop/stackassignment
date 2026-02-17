@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>APA 7th vs Harvard vs MLA vs Chicago – 2026 | Stack Assignment</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  body{font-family:'Inter',sans-serif;background:#eef0f5;}
+  .hero-card{background:linear-gradient(135deg,#4a7fd4 0%,#2ab4c0 100%);border-radius:18px;height:240px;position:relative;overflow:hidden;}
+  .hero-card::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(255,255,255,.14),transparent 60%);}
+  .article p{color:#3d3d5c;font-size:15px;line-height:1.85;margin-bottom:20px;}
+  .dark .article p{color:#cbd5e1;}
+  .article p strong{color:#1a1a2e;font-weight:600;}
+  .dark .article p strong{color:#f1f5f9;}
+  .article h2{font-size:19px;font-weight:700;color:#1a1a2e;margin:38px 0 14px;padding-bottom:10px;border-bottom:2px solid #dde0ed;position:relative;}
+  .dark .article h2{color:#f1f5f9;border-bottom-color:#334155;}
+  .article h2::after{content:'';position:absolute;bottom:-2px;left:0;width:44px;height:2px;background:linear-gradient(90deg,#4a7fd4,#2ab4c0);}
+  .blog-card{background:#fff;border:1px solid #dde0ed;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,.04);}
+  .dark .blog-card{background:#1e293b;border-color:#334155;}
+  .info-box{background:#e8f5ff;border:1px solid #b3d9f7;border-radius:10px;padding:18px 22px;margin:22px 0;}
+  .dark .info-box{background:#1a2a3a;border-color:#2563eb;}
+  .warn-box{background:#fff8e6;border:1px solid #ffd97a;border-radius:10px;padding:18px 22px;margin:22px 0;}
+  .dark .warn-box{background:#2a2010;border-color:#ca8a04;}
+  .blog-img{width:100%;border-radius:10px;box-shadow:0 6px 24px rgba(0,0,0,.1);margin:26px 0;display:block;object-fit:cover;max-height:320px;}
+  .img-caption{text-align:center;font-size:12px;color:#6b6b8a;margin-top:-16px;margin-bottom:22px;font-style:italic;}
+  .cmp-table{width:100%;border-collapse:collapse;margin:20px 0;border-radius:10px;overflow:hidden;box-shadow:0 0 0 1px #dde0ed,0 4px 16px rgba(74,127,212,.06);}
+  .cmp-table thead{background:linear-gradient(135deg,#4a7fd4,#2ab4c0);}
+  .cmp-table th{padding:11px 14px;text-align:left;font-size:11px;color:#fff;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+  .cmp-table td{padding:10px 14px;font-size:12.5px;color:#3d3d5c;border-bottom:1px solid #dde0ed;vertical-align:top;line-height:1.55;}
+  .dark .cmp-table td{color:#cbd5e1;border-bottom-color:#334155;background:#1e293b;}
+  .cmp-table tr:nth-child(even) td{background:#f5fcfd;}
+  .dark .cmp-table tr:nth-child(even) td{background:#253047;}
+  .cmp-table tr:last-child td{border-bottom:none;}
+  .cmp-table td:first-child{font-weight:700;color:#1a1a2e;font-size:12px;background:#f9fafd;white-space:nowrap;}
+  .dark .cmp-table td:first-child{color:#f1f5f9;background:#253047;}
+  .pill{display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;}
+  .pill-apa{background:#e8e6fa;color:#4a3fb5;}
+  .pill-harv{background:#e6f2fa;color:#1a6fa8;}
+  .pill-mla{background:#e6faf0;color:#1a7a50;}
+  .pill-chi{background:#faf0e6;color:#8a5a1a;}
+  .quick-ref{background:linear-gradient(135deg,#4a7fd4,#2ab4c0);border-radius:12px;padding:26px 28px;margin:28px 0;color:#fff;}
+  .style-card{background:#fff;border:1px solid #dde0ed;border-radius:10px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.04);position:relative;overflow:hidden;}
+  .dark .style-card{background:#1e293b;border-color:#334155;}
+  .style-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;}
+  .sc-apa::before{background:linear-gradient(90deg,#7b5ea7,#5b4fcf);}
+  .sc-harv::before{background:linear-gradient(90deg,#4a7fd4,#2ab4c0);}
+  .sc-mla::before{background:linear-gradient(90deg,#2ab4c0,#1ec98a);}
+  .sc-chi::before{background:linear-gradient(90deg,#f4a261,#e76f51);}
+  .cat-tag{color:#5b4fcf;font-size:12.5px;font-weight:600;}
+  .meta-dot,.meta-date{color:#6b6b8a;font-size:12.5px;}
+  .post-title{font-size:clamp(22px,4vw,32px);font-weight:800;color:#1a1a2e;line-height:1.22;letter-spacing:-.4px;margin-bottom:12px;}
+  .dark .post-title{color:#f1f5f9;}
+  .post-sub{font-size:14.5px;color:#6b6b8a;line-height:1.7;margin-bottom:36px;}
+  .mistake-card{background:#fff;border:1px solid #dde0ed;border-radius:8px;padding:14px;display:flex;gap:10px;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+  .dark .mistake-card{background:#1e293b;border-color:#334155;}
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+<nav class="bg-white dark:bg-slate-900 shadow-lg sticky top-0 z-50 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      
+      <!-- Clickable logo -->
+      <a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition">
+        <i class="fas fa-graduation-cap text-3xl text-indigo-600 dark:text-indigo-400"></i>
+        <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Stack Assignment</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+        <a href="services.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+        <a href="pricing.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold">Pricing</a>
+        <a href="samples.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Samples</a>
+        <a href="blog.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-800">
+          <i id="theme-icon" class="fas fa-moon text-xl"></i>
+        </button>
+        <a href="tel:+919126943297" class="hidden sm:flex items-center gap-2 hover:text-indigo-600 dark:hover:text-indigo-400">
+          <i class="fas fa-phone"></i> +91-91269-43297
+        </a>
+        <button onclick="document.getElementById('order')?.scrollIntoView({behavior:'smooth'}) || window.location.assign('index.html#order')"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium">
+          Order Now
+        </button>
+        <button id="mobile-menu-btn" class="md:hidden text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 shadow-lg">
+    <div class="px-4 py-6 space-y-4">
+      <a href="index.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+      <a href="services.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+      <a href="pricing.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold">Pricing</a>
+      <a href="samples.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Samples</a>
+      <a href="blog.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+    </div>
+  </div>
+</nav>
+<main class="flex-1" style="background:#eef0f5;">
+<div class="max-w-4xl mx-auto px-6 pb-16">
+
+  <div class="hero-card mt-10">
+    <div class="absolute bottom-7 left-8 text-white" style="position:absolute;bottom:28px;left:32px;">
+      <span class="text-xs font-semibold tracking-widest uppercase block mb-2" style="color:rgba(255,255,255,.7)">Referencing Guide · 2026</span>
+      <h2 class="text-2xl font-black leading-snug">APA 7th vs Harvard vs MLA vs Chicago</h2>
+    </div>
+  </div>
+
+  <div class="flex items-center gap-3 pt-7 pb-2 flex-wrap">
+    <span class="cat-tag">Referencing</span>
+    <span class="meta-dot">•</span>
+    <span class="meta-date">January 28, 2026</span>
+    <span class="meta-dot">•</span>
+    <span class="meta-date">7 min read</span>
+  </div>
+
+  <h1 class="post-title">APA 7th vs Harvard vs MLA vs Chicago – 2026 Quick Comparison Chart</h1>
+  <p class="post-sub">Side-by-side examples for in-text citations, reference list entries, DOIs, URLs, et al. usage, and the most common mistakes Indian students make in each style.</p>
+
+  <article class="article">
+
+    <p>If your university assignment says "use Harvard referencing" and you have spent twenty minutes searching for whether that is the same as APA — you are not alone. Citation styles confuse almost every student, and getting them wrong costs marks that were genuinely earned elsewhere. This guide gives you a direct, practical comparison of the four styles you will encounter most.</p>
+
+    <h2>The Four Styles at a Glance</h2>
+    <p>Before looking at examples, understand where each style is actually used. Choosing the wrong style for your discipline is itself a common error — even when every citation is otherwise perfectly formatted.</p>
+
+    <div class="grid md:grid-cols-2 gap-4 my-6">
+      <div class="style-card sc-apa">
+        <h3 class="text-sm font-bold mb-1" style="color:#1a1a2e">APA 7th Edition</h3>
+        <p class="text-xs italic mb-3" style="color:#6b6b8a">Psychology · Education · Social Sciences · Business</p>
+        <p class="text-xs leading-relaxed" style="color:#3d3d5c">Author–date system. Year immediately after author name. DOI as hyperlink. "et al." from 3+ authors.</p>
+      </div>
+      <div class="style-card sc-harv">
+        <h3 class="text-sm font-bold mb-1" style="color:#1a1a2e">Harvard</h3>
+        <p class="text-xs italic mb-3" style="color:#6b6b8a">Business · Law · Humanities (UK & most Indian universities)</p>
+        <p class="text-xs leading-relaxed" style="color:#3d3d5c">Author–date (similar to APA). <strong>No single official standard</strong> — always follow your institution's specific guide.</p>
+      </div>
+      <div class="style-card sc-mla">
+        <h3 class="text-sm font-bold mb-1" style="color:#1a1a2e">MLA 9th Edition</h3>
+        <p class="text-xs italic mb-3" style="color:#6b6b8a">Literature · Arts · Humanities · Language Studies</p>
+        <p class="text-xs leading-relaxed" style="color:#3d3d5c">Author–page system. Page number in in-text citation. "Works Cited" list — not "References."</p>
+      </div>
+      <div class="style-card sc-chi">
+        <h3 class="text-sm font-bold mb-1" style="color:#1a1a2e">Chicago / Turabian</h3>
+        <p class="text-xs italic mb-3" style="color:#6b6b8a">History · Fine Arts · some Humanities</p>
+        <p class="text-xs leading-relaxed" style="color:#3d3d5c">Two systems: footnotes/endnotes <em>or</em> author–date. Most students use Notes-Bibliography. Turabian = student version.</p>
+      </div>
+    </div>
+
+    <h2>In-Text Citation: Side by Side</h2>
+    <p>Using the same source — a 2023 book by Smith and Jones — across all four styles. The in-text citation appears inside your essay immediately after a quote or paraphrase.</p>
+
+    <table class="cmp-table">
+      <thead><tr><th>Style</th><th>Direct Quote (p. 47)</th><th>Paraphrase</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill pill-apa">APA 7th</span></td><td>"quote here" (Smith &amp; Jones, 2023, p. 47)</td><td>(Smith &amp; Jones, 2023)</td></tr>
+        <tr><td><span class="pill pill-harv">Harvard</span></td><td>"quote here" (Smith and Jones, 2023, p. 47)</td><td>(Smith and Jones, 2023)</td></tr>
+        <tr><td><span class="pill pill-mla">MLA 9th</span></td><td>"quote here" (Smith and Jones 47)</td><td>(Smith and Jones 47)</td></tr>
+        <tr><td><span class="pill pill-chi">Chicago NB</span></td><td>Footnote: ¹ Smith and Jones, <em>Title</em>, 47.</td><td>Superscript footnote number in body text</td></tr>
+      </tbody>
+    </table>
+
+    <div class="info-box">
+      <h4 class="text-sm font-bold mb-2" style="color:#1a6fa8">📌 Key Differences to Remember</h4>
+      <ul class="text-sm space-y-1 pl-4 list-disc" style="color:#2d4a7a">
+        <li><strong>APA</strong> uses "&amp;" (ampersand) inside brackets; Harvard and MLA spell out "and"</li>
+        <li><strong>MLA</strong> uses page number directly — no "p." prefix, no comma before the number</li>
+        <li><strong>Chicago NB</strong> puts nothing in the essay text — everything goes in a footnote or endnote</li>
+      </ul>
+    </div>
+
+    <img class="blog-img" src="https://images.unsplash.com/photo-1456324504439-367cee3b3c32?w=820&auto=format&fit=crop" alt="Open books and notes on a study desk"/>
+    <p class="img-caption">Understanding the logic behind each style makes referencing far less stressful.</p>
+
+    <h2>Full Reference List Entries: Side by Side</h2>
+    <p>Same source — Smith, J. and Jones, A. (2023). <em>Academic Success Strategies</em>. Oxford University Press — formatted in all four styles.</p>
+
+    <table class="cmp-table">
+      <thead><tr><th>Style</th><th>Full Reference / Bibliography Entry</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill pill-apa">APA 7th</span></td><td>Smith, J., &amp; Jones, A. (2023). <em>Academic success strategies</em>. Oxford University Press.</td></tr>
+        <tr><td><span class="pill pill-harv">Harvard</span></td><td>Smith, J. and Jones, A. (2023) <em>Academic Success Strategies</em>. Oxford: Oxford University Press.</td></tr>
+        <tr><td><span class="pill pill-mla">MLA 9th</span></td><td>Smith, John, and Alice Jones. <em>Academic Success Strategies</em>. Oxford University Press, 2023.</td></tr>
+        <tr><td><span class="pill pill-chi">Chicago NB</span></td><td>Smith, John, and Alice Jones. <em>Academic Success Strategies</em>. Oxford: Oxford University Press, 2023.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>DOIs and URLs: How Each Style Handles Them</h2>
+    <table class="cmp-table">
+      <thead><tr><th>Style</th><th>DOI Format</th><th>URL / Webpage</th></tr></thead>
+      <tbody>
+        <tr><td><span class="pill pill-apa">APA 7th</span></td><td>https://doi.org/10.xxxx/xxxx (clickable link, no "Retrieved from")</td><td>URL only if no DOI. Retrieval date for pages that may change.</td></tr>
+        <tr><td><span class="pill pill-harv">Harvard</span></td><td>doi:10.xxxx/xxxx OR Available at: https://doi.org/... [Accessed: date]</td><td>Available at: URL [Accessed: day month year]</td></tr>
+        <tr><td><span class="pill pill-mla">MLA 9th</span></td><td>&lt;https://doi.org/...&gt; in angle brackets</td><td>URL in angle brackets. Access date optional but recommended.</td></tr>
+        <tr><td><span class="pill pill-chi">Chicago NB</span></td><td>doi:10.xxxx/xxxx at end of footnote entry.</td><td>URL followed by access date in parentheses.</td></tr>
+      </tbody>
+    </table>
+
+    <h2>The Et Al. Rule: When Each Style Uses It</h2>
+    <div class="quick-ref">
+      <h3 class="text-base font-bold mb-4">Et Al. Quick Reference Chart</h3>
+      <div class="grid md:grid-cols-2 gap-4">
+        <div><h5 class="text-xs font-bold uppercase tracking-wider mb-1" style="color:rgba(255,255,255,.65)">APA 7th</h5><p class="text-sm">3 or more authors → et al. from the first citation onwards. (Smith et al., 2023)</p></div>
+        <div><h5 class="text-xs font-bold uppercase tracking-wider mb-1" style="color:rgba(255,255,255,.65)">Harvard</h5><p class="text-sm">Usually 3 or more → et al. in-text. Check your institution — some set the threshold at 4+.</p></div>
+        <div><h5 class="text-xs font-bold uppercase tracking-wider mb-1" style="color:rgba(255,255,255,.65)">MLA 9th</h5><p class="text-sm">3 or more authors → first author + et al. in both in-text and Works Cited. (Smith et al. 47)</p></div>
+        <div><h5 class="text-xs font-bold uppercase tracking-wider mb-1" style="color:rgba(255,255,255,.65)">Chicago NB</h5><p class="text-sm">4 or more authors → et al. in footnotes after first author. Full list still in bibliography.</p></div>
+      </div>
+    </div>
+
+    <h2>Most Common Mistakes Indian Students Make</h2>
+    <div class="grid md:grid-cols-2 gap-3 my-5">
+      <div class="mistake-card"><span class="text-xl flex-shrink-0 mt-1">❌</span><div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Using APA when Harvard is required</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">They look nearly identical but differ on ampersand vs "and," title case, and publisher location. Always check your module handbook first.</p></div></div>
+      <div class="mistake-card"><span class="text-xl flex-shrink-0 mt-1">❌</span><div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Forgetting the access date for websites</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">Harvard and Chicago require an "Accessed" date for webpages. APA does not — but students apply one rule incorrectly across all styles.</p></div></div>
+      <div class="mistake-card"><span class="text-xl flex-shrink-0 mt-1">❌</span><div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Wrong title capitalisation in APA</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">APA uses sentence case (first word only). Students apply title case — Every Word Capitalised — which is correct in MLA and Chicago but wrong in APA.</p></div></div>
+      <div class="mistake-card"><span class="text-xl flex-shrink-0 mt-1">❌</span><div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Missing page numbers in MLA</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">MLA requires a page number for both quotes and paraphrases. APA only requires it for direct quotes.</p></div></div>
+      <div class="mistake-card"><span class="text-xl flex-shrink-0 mt-1">❌</span><div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Formatting DOI as plain text</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">APA 7th requires DOIs as full hyperlinks (https://doi.org/...). Many students paste only the raw DOI number without the prefix.</p></div></div>
+      <div class="mistake-card"><span class="text-xl flex-shrink-0 mt-1">❌</span><div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Mixing styles in one document</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">APA in-text citations with a Harvard-formatted reference list — or vice versa — is immediately visible to markers and costs significant marks.</p></div></div>
+    </div>
+
+    <div class="warn-box">
+      <h4 class="text-sm font-bold mb-2" style="color:#8a5a00">⚠️ Harvard Warning for Indian Students</h4>
+      <ul class="text-sm space-y-1 pl-4 list-disc" style="color:#6b4a00">
+        <li>There is <strong>no single official "Harvard" standard</strong> — it is a family of author-date styles.</li>
+        <li>Your university's library or handbook specifies their version — follow that exactly, not generic online guides.</li>
+        <li>Tools like Cite This For Me or Zotero may generate a version of Harvard that does not match your institution's requirements.</li>
+      </ul>
+    </div>
+
+    <img class="blog-img" src="https://images.unsplash.com/photo-1588702547919-26089e690ecc?w=820&auto=format&fit=crop" alt="Student checking references on laptop"/>
+    <p class="img-caption">Zotero is free, integrates with Word and Google Docs, and supports all four major citation styles — set it up on Day 1.</p>
+
+    <h2>Which Referencing Tool Should You Use?</h2>
+    <p><strong>Zotero</strong> is free, integrates directly with Word and Google Docs, and supports all four major styles. <strong>Mendeley</strong> is a strong alternative for APA-heavy disciplines. Web tools like Cite This For Me are convenient but should always be verified manually — automated generators produce errors, especially with unusual sources like government reports, edited volumes, or conference papers.</p>
+    <p>The golden rule: <strong>verify every reference entry manually against your institution's guide before you submit.</strong> The responsibility for correct referencing always belongs to the student, not the software.</p>
+
+  </article>
+</div>
+</main>
+
+<footer class="bg-slate-900 text-slate-300 py-12 mt-auto relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-3 text-white text-2xl font-bold mb-4">
+          <i class="fas fa-graduation-cap"></i>
+          Stack Assignment
+        </div>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Professional academic writing & assignment assistance.<br>
+          Providing model / reference papers only.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+          <li><a href="pricing.html"  class="hover:text-white transition">Pricing</a></li>
+          <li><a href="samples.html"  class="hover:text-white transition">Samples</a></li>
+          <li><a href="blog.html"     class="hover:text-white transition">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4">Support</h4>
+        <p class="text-sm mb-1">24/7 Assistance</p>
+        <a href="tel:+919126943297"    class="block hover:text-white transition">+91-91269-43297</a>
+        <a href="mailto:stackassignment@gmail.com" class="block hover:text-white transition">stackassignment@gmail.com</a>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Academic Integrity</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-700 text-center text-sm opacity-75">
+      © 2026 Stack Assignment. All rights reserved.
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-[100] flex items-center gap-3 group">
+    <!-- Tooltip on hover -->
+    <div class="absolute right-20 bottom-1/2 translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/80 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap pointer-events-none shadow-lg">
+      Chat with us on WhatsApp!
+    </div>
+
+    <!-- WhatsApp button -->
+    <a 
+      href="https://wa.me/919126943297?text=Hi%2C%20I%20need%20help%20with%20my%20assignment%20%E2%80%93%20can%20you%20help%3F%20Please%20tell%20me%20the%20subject%2C%20deadline%20and%20word%20count."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-16 h-16 bg-[#25D366] hover:bg-[#20b858] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/40 active:scale-95"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+  </div>
+</footer>
+
+<script>
+// ──────────────────────────────────────────────
+// Dark mode & mobile menu logic
+// ──────────────────────────────────────────────
+
+function initThemeAndMenu() {
+  const toggle = document.getElementById('theme-toggle');
+  const icon   = document.getElementById('theme-icon');
+  const html   = document.documentElement;
+
+  if (!toggle || !icon) return;
+
+  function setTheme(isDark) {
+    html.classList.toggle('dark', isDark);
+    icon.classList.toggle('fa-moon', !isDark);
+    icon.classList.toggle('fa-sun',   isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(saved ? saved === 'dark' : prefersDark);
+
+  toggle.addEventListener('click', () => {
+    setTheme(!html.classList.contains('dark'));
+  });
+
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initThemeAndMenu);
+} else {
+  initThemeAndMenu();
+}
+</script></body></html>

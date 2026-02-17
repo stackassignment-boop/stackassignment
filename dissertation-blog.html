@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How to Finish a 10,000-Word Dissertation in Under 30 Days | Stack Assignment</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: 'Inter', sans-serif; background: #eef0f5; }
+  .dark body { background: #0f172a; }
+
+  .hero-card { background: linear-gradient(135deg, #7b5ea7 0%, #5b4fcf 100%); border-radius: 18px; height: 240px; position: relative; overflow: hidden; }
+  .hero-card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 70% 50%, rgba(255,255,255,.14), transparent 60%); }
+
+  .article p { color: #3d3d5c; font-size: 15px; line-height: 1.85; margin-bottom: 20px; }
+  .dark .article p { color: #cbd5e1; }
+  .article p strong { color: #1a1a2e; font-weight: 600; }
+  .dark .article p strong { color: #f1f5f9; }
+
+  .article h2 { font-size: 19px; font-weight: 700; color: #1a1a2e; margin: 38px 0 14px; padding-bottom: 10px; border-bottom: 2px solid #dde0ed; position: relative; }
+  .dark .article h2 { color: #f1f5f9; border-bottom-color: #334155; }
+  .article h2::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 44px; height: 2px; background: linear-gradient(90deg, #7b5ea7, #5b4fcf); }
+
+  .blog-card { background: #fff; border: 1px solid #dde0ed; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .dark .blog-card { background: #1e293b; border-color: #334155; }
+
+  .phase-card { border-radius: 10px; padding: 20px; border: 1px solid #dde0ed; }
+  .dark .phase-card { border-color: #334155; }
+  .phase-card.p1 { background: #fff5f2; } .dark .phase-card.p1 { background: #2d1f1a; }
+  .phase-card.p2 { background: #f0f7ff; } .dark .phase-card.p2 { background: #1a2540; }
+  .phase-card.p3 { background: #f0fff5; } .dark .phase-card.p3 { background: #1a2d22; }
+
+  .info-box { background: #f0eeff; border: 1px solid #c8c2f0; border-radius: 10px; padding: 18px 22px; margin: 22px 0; }
+  .dark .info-box { background: #1e1a3a; border-color: #4338ca; }
+  .warn-box { background: #fff8e6; border: 1px solid #ffd97a; border-radius: 10px; padding: 18px 22px; margin: 22px 0; }
+  .dark .warn-box { background: #2a2010; border-color: #ca8a04; }
+
+  .blog-img { width: 100%; border-radius: 10px; box-shadow: 0 6px 24px rgba(0,0,0,.1); margin: 26px 0; display: block; object-fit: cover; max-height: 320px; }
+  .img-caption { text-align: center; font-size: 12px; color: #6b6b8a; margin-top: -16px; margin-bottom: 22px; font-style: italic; }
+
+  .cmp-table { width: 100%; border-collapse: collapse; margin: 20px 0; border-radius: 10px; overflow: hidden; box-shadow: 0 0 0 1px #dde0ed, 0 4px 16px rgba(91,79,207,.06); }
+  .cmp-table thead { background: linear-gradient(135deg, #7b5ea7, #5b4fcf); }
+  .cmp-table th { padding: 11px 14px; text-align: left; font-size: 11.5px; color: #fff; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
+  .cmp-table td { padding: 10px 14px; font-size: 12.5px; color: #3d3d5c; border-bottom: 1px solid #dde0ed; vertical-align: top; line-height: 1.55; }
+  .dark .cmp-table td { color: #cbd5e1; border-bottom-color: #334155; background: #1e293b; }
+  .cmp-table tr:nth-child(even) td { background: #f7f8fc; }
+  .dark .cmp-table tr:nth-child(even) td { background: #253047; }
+  .cmp-table tr:last-child td { border-bottom: none; }
+  .cmp-table td:first-child { font-weight: 700; color: #1a1a2e; font-size: 12px; background: #f9fafd; }
+  .dark .cmp-table td:first-child { color: #f1f5f9; background: #253047; }
+
+  .pull-quote { background: linear-gradient(135deg, #7b5ea7, #5b4fcf); border-radius: 12px; padding: 30px 36px; margin: 32px 0; text-align: center; position: relative; overflow: hidden; }
+  .pull-quote::before { content: '"'; position: absolute; left: 20px; top: -10px; font-size: 100px; color: rgba(255,255,255,.12); font-family: Georgia, serif; line-height: 1; }
+
+  .quick-ref { background: linear-gradient(135deg, #7b5ea7, #5b4fcf); border-radius: 12px; padding: 26px 28px; margin: 28px 0; color: #fff; }
+
+  .tip-card { background: #fff; border: 1px solid #dde0ed; border-radius: 10px; padding: 18px; position: relative; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .dark .tip-card { background: #1e293b; border-color: #334155; }
+  .tip-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+  .tip-card:nth-child(1)::after { background: linear-gradient(90deg, #7b5ea7, #5b4fcf); }
+  .tip-card:nth-child(2)::after { background: linear-gradient(90deg, #4a7fd4, #2ab4c0); }
+  .tip-card:nth-child(3)::after { background: linear-gradient(90deg, #2ab4c0, #1ec98a); }
+  .tip-card:nth-child(4)::after { background: linear-gradient(90deg, #f4a261, #e76f51); }
+  .tip-card h4 { font-size: 13.5px; font-weight: 700; color: #1a1a2e; margin-bottom: 6px; }
+  .dark .tip-card h4 { color: #f1f5f9; }
+  .tip-card p { font-size: 12.5px; color: #6b6b8a; margin-bottom: 0; line-height: 1.6; }
+
+  .check-item { display: flex; align-items: flex-start; gap: 9px; font-size: 12.5px; color: #3d3d5c; line-height: 1.45; padding: 5px 0; border-bottom: 1px solid #dde0ed; }
+  .dark .check-item { color: #cbd5e1; border-bottom-color: #334155; }
+  .check-item:last-child { border-bottom: none; }
+  .cb { width: 18px; height: 18px; border-radius: 4px; background: #e8f5ee; border: 1.5px solid #1ec98a; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #1ec98a; flex-shrink: 0; margin-top: 1px; }
+
+  .cat-tag { color: #5b4fcf; font-size: 12.5px; font-weight: 600; }
+  .meta-dot, .meta-date { color: #6b6b8a; font-size: 12.5px; }
+  .post-title { font-size: clamp(22px, 4vw, 32px); font-weight: 800; color: #1a1a2e; line-height: 1.22; letter-spacing: -.4px; margin-bottom: 12px; }
+  .dark .post-title { color: #f1f5f9; }
+  .post-sub { font-size: 14.5px; color: #6b6b8a; line-height: 1.7; margin-bottom: 36px; }
+
+  .wc-tag { background: #e8f5ee; color: #1a7a50; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .day-tag { background: #eef0ff; color: #3a4fbf; font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 3px; }
+  .ch-num { display: inline-block; background: #5b4fcf; color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 3px; margin-right: 6px; }
+
+  .pomo-n { width: 28px; height: 28px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+  .pomo-step:nth-child(1) .pomo-n { background: #fdecea; color: #c0432a; }
+  .pomo-step:nth-child(2) .pomo-n { background: #e8f5ee; color: #1a7a44; }
+  .pomo-step:nth-child(3) .pomo-n { background: #fff3e0; color: #e07800; }
+  .pomo-step:nth-child(4) .pomo-n { background: #eef0ff; color: #3a4fbf; }
+</style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+<nav class="bg-white dark:bg-slate-900 shadow-lg sticky top-0 z-50 transition-colors">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between h-16 items-center">
+      
+      <!-- Clickable logo -->
+      <a href="index.html" class="flex items-center gap-3 hover:opacity-90 transition">
+        <i class="fas fa-graduation-cap text-3xl text-indigo-600 dark:text-indigo-400"></i>
+        <span class="text-2xl font-bold text-indigo-600 dark:text-indigo-400">Stack Assignment</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+        <a href="services.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+        <a href="pricing.html" class="hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold">Pricing</a>
+        <a href="samples.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Samples</a>
+        <a href="blog.html" class="hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-slate-800">
+          <i id="theme-icon" class="fas fa-moon text-xl"></i>
+        </button>
+        <a href="tel:+919126943297" class="hidden sm:flex items-center gap-2 hover:text-indigo-600 dark:hover:text-indigo-400">
+          <i class="fas fa-phone"></i> +91-91269-43297
+        </a>
+        <button onclick="document.getElementById('order')?.scrollIntoView({behavior:'smooth'}) || window.location.assign('index.html#order')"
+                class="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-2.5 rounded-xl font-medium">
+          Order Now
+        </button>
+        <button id="mobile-menu-btn" class="md:hidden text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-slate-900 shadow-lg">
+    <div class="px-4 py-6 space-y-4">
+      <a href="index.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Home</a>
+      <a href="services.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Services</a>
+      <a href="pricing.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400 font-semibold">Pricing</a>
+      <a href="samples.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Samples</a>
+      <a href="blog.html" class="block hover:text-indigo-600 dark:hover:text-indigo-400">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<main class="flex-1" style="background:#eef0f5;">
+<div class="max-w-4xl mx-auto px-6 pb-16">
+
+  <!-- HERO -->
+  <div class="hero-card mt-10 mb-0">
+    <div style="position:absolute;bottom:28px;left:32px;color:#fff;">
+      <span style="font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.7);display:block;margin-bottom:6px;">Study Hacks · February 2026</span>
+      <h2 style="font-size:22px;font-weight:800;line-height:1.25;max-width:480px;">How to Finish a 10,000-Word Dissertation in Under 30 Days</h2>
+    </div>
+  </div>
+
+  <!-- META -->
+  <div class="flex items-center gap-3 pt-7 pb-2 flex-wrap">
+    <span class="cat-tag">Study Hacks</span>
+    <span class="meta-dot">•</span>
+    <span class="meta-date">February 10, 2026</span>
+    <span class="meta-dot">•</span>
+    <span class="meta-date">8 min read</span>
+  </div>
+
+  <h1 class="post-title">How to Finish a 10,000-Word Dissertation in Under 30 Days (Realistic Plan)</h1>
+  <p class="post-sub">A step-by-step timetable that actually works — including daily word targets, Pomodoro + breaks, chapter outlining templates, and when to use reference managers vs AI tools…</p>
+
+  <!-- STATS ROW -->
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+    <div class="blog-card p-4 text-center">
+      <span class="block text-2xl font-black" style="background:linear-gradient(135deg,#7b5ea7,#5b4fcf);-webkit-background-clip:text;-webkit-text-fill-color:transparent">10K</span>
+      <span class="text-xs text-gray-500 font-medium mt-1 block">Target Words</span>
+    </div>
+    <div class="blog-card p-4 text-center">
+      <span class="block text-2xl font-black" style="background:linear-gradient(135deg,#7b5ea7,#5b4fcf);-webkit-background-clip:text;-webkit-text-fill-color:transparent">30</span>
+      <span class="text-xs text-gray-500 font-medium mt-1 block">Days Total</span>
+    </div>
+    <div class="blog-card p-4 text-center">
+      <span class="block text-2xl font-black" style="background:linear-gradient(135deg,#7b5ea7,#5b4fcf);-webkit-background-clip:text;-webkit-text-fill-color:transparent">~350</span>
+      <span class="text-xs text-gray-500 font-medium mt-1 block">Words / Day</span>
+    </div>
+    <div class="blog-card p-4 text-center">
+      <span class="block text-2xl font-black" style="background:linear-gradient(135deg,#7b5ea7,#5b4fcf);-webkit-background-clip:text;-webkit-text-fill-color:transparent">4 hrs</span>
+      <span class="text-xs text-gray-500 font-medium mt-1 block">Daily Focus</span>
+    </div>
+  </div>
+
+  <article class="article">
+
+    <p>Thirty days. Ten thousand words. A blinking cursor and a deadline that feels like a freight train. If you're here, you probably know that exact sinking feeling. But here's what nobody tells you: <strong>the students who finish on tight timelines don't write faster — they plan smarter.</strong></p>
+    <p>This is not a post about grinding through 18-hour days on caffeine and anxiety. It's about building a daily system that is sustainable, measurable, and — surprisingly — still leaves room for an actual life. Follow this plan and you will have a complete, submittable dissertation in 30 days.</p>
+
+    <img class="blog-img" src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=860&auto=format&fit=crop" alt="Student studying at a desk"/>
+    <p class="img-caption">Consistent, focused sessions beat occasional all-nighters every single time.</p>
+
+    <h2>Why Most Students Struggle — and How to Avoid It</h2>
+    <p>The number one killer of dissertation progress is not laziness — it is the absence of a concrete daily structure. Without a target, every day feels equally urgent and equally vague. Students spend hours re-reading the same paper, reorganising files, and convincing themselves they are almost ready to write. They are not writing.</p>
+    <p>The fix is simple: <strong>break the dissertation into chapters, assign each chapter a word count, and assign each chapter a defined set of days.</strong> Once you can see the whole project mapped out, it stops being a terrifying mountain and becomes a series of manageable hills.</p>
+
+    <div class="info-box">
+      <h4 class="text-sm font-bold mb-2" style="color:#4a3fb5">📌 Key Insight</h4>
+      <p class="text-sm" style="color:#3d3a6b">A 10,000-word dissertation over 30 days only requires around <strong>350 words per working day</strong> — roughly two focused writing sessions. That is entirely achievable.</p>
+    </div>
+
+    <h2>The 3-Phase, 30-Day Plan</h2>
+    <p>Think of your dissertation like a construction project. You would not pour concrete before laying a foundation. The three phases below treat your work the same way — structured, sequential, and purposeful.</p>
+
+    <div class="grid md:grid-cols-3 gap-4 my-6">
+      <div class="phase-card p1">
+        <span class="text-xs font-bold tracking-wider uppercase block mb-2" style="color:#c0432a">Phase 01 · Days 1–7</span>
+        <h4 class="text-sm font-bold mb-2" style="color:#1a1a2e">Research & Outline</h4>
+        <p class="text-xs leading-relaxed" style="color:#6b6b8a">Lock in your question, complete literature searches, and build your chapter skeleton. Do not start writing prose yet.</p>
+        <div class="text-xs font-semibold mt-3 rounded px-2 py-1" style="background:rgba(0,0,0,.05);color:#1a1a2e">🎯 ~1,000 words in notes</div>
+      </div>
+      <div class="phase-card p2">
+        <span class="text-xs font-bold tracking-wider uppercase block mb-2" style="color:#2d6fbb">Phase 02 · Days 8–22</span>
+        <h4 class="text-sm font-bold mb-2" style="color:#1a1a2e">The Writing Sprint</h4>
+        <p class="text-xs leading-relaxed" style="color:#6b6b8a">Write chapter by chapter at 500–600 words per session. Two sessions daily. Do not edit as you go — just write.</p>
+        <div class="text-xs font-semibold mt-3 rounded px-2 py-1" style="background:rgba(0,0,0,.05);color:#1a1a2e">🎯 8,000 words total</div>
+      </div>
+      <div class="phase-card p3">
+        <span class="text-xs font-bold tracking-wider uppercase block mb-2" style="color:#1a7a44">Phase 03 · Days 23–30</span>
+        <h4 class="text-sm font-bold mb-2" style="color:#1a1a2e">Edit & Submit</h4>
+        <p class="text-xs leading-relaxed" style="color:#6b6b8a">Write intro and conclusion, read aloud, verify every citation, format to your style guide, and submit with confidence.</p>
+        <div class="text-xs font-semibold mt-3 rounded px-2 py-1" style="background:rgba(0,0,0,.05);color:#1a1a2e">🎯 Final 1,000 + full edit</div>
+      </div>
+    </div>
+
+    <h2>Your Daily Writing Schedule</h2>
+    <p>Consistency beats intensity — always. A focused 4-hour writing day repeated across 30 days will outperform an occasional 12-hour cram session every single time. Adapt the times to your own schedule, but <strong>protect those core writing blocks</strong> like non-negotiable appointments.</p>
+
+    <div class="info-box">
+      <h4 class="text-sm font-bold mb-3" style="color:#4a3fb5">📅 Sample Daily Writing Schedule</h4>
+      <ul class="space-y-2 text-sm" style="color:#3d3a6b; padding-left:16px; list-style:disc;">
+        <li><strong>07:30–09:30</strong> — Deep Work Block 1: phone off, browser closed, 2× Pomodoro sessions</li>
+        <li><strong>09:30–10:00</strong> — Active break: walk, stretch, coffee — absolutely no scrolling</li>
+        <li><strong>10:00–12:00</strong> — Deep Work Block 2: continue writing or switch to citation work</li>
+        <li><strong>12:00–13:30</strong> — Lunch and genuine break: leave your desk, let your brain rest</li>
+        <li><strong>13:30–15:30</strong> — Review and research: re-read, add citations, outline tomorrow</li>
+        <li><strong>15:30–16:00</strong> — Log word count, update tracker, and truly stop</li>
+      </ul>
+    </div>
+
+    <img class="blog-img" src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=860&auto=format&fit=crop" alt="Open planner with daily schedule"/>
+    <p class="img-caption">A written daily schedule reduces decision fatigue and keeps momentum steady throughout the month.</p>
+
+    <h2>Using the Pomodoro Technique for Dissertation Writing</h2>
+    <p>Set a timer for 25 minutes, write with complete focus, take a 5-minute break, repeat. After four rounds, take a 25-minute long break. Timed sprints reduce the mental friction of starting, and structured breaks prevent the cognitive fatigue that makes your writing incoherent by midday.</p>
+
+    <div class="grid md:grid-cols-2 gap-3 my-5">
+      <div class="pomo-step blog-card p-4 flex gap-3 items-start">
+        <div class="pomo-n">1</div>
+        <div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Set a micro-goal before you start</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">Write one sentence describing what this 25-min sprint covers. "Explain Author X's critique of Theory Y." Be specific before pressing start.</p></div>
+      </div>
+      <div class="pomo-step blog-card p-4 flex gap-3 items-start">
+        <div class="pomo-n">2</div>
+        <div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Write — never edit during a sprint</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">Type forward, not backward. Use "TK" to mark anything needing fact-checking later. Your inner critic is your worst enemy during drafting.</p></div>
+      </div>
+      <div class="pomo-step blog-card p-4 flex gap-3 items-start">
+        <div class="pomo-n">3</div>
+        <div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Take the 5-minute break seriously</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">Stand up. Look out a window. Do nothing. Micro-rests consolidate what you have written and fully reset your focus capacity.</p></div>
+      </div>
+      <div class="pomo-step blog-card p-4 flex gap-3 items-start">
+        <div class="pomo-n">4</div>
+        <div><h5 class="text-sm font-bold mb-1" style="color:#1a1a2e">Long break after four rounds</h5><p class="text-xs leading-relaxed" style="color:#6b6b8a">Take 25–30 minutes away from your desk. Eat, walk, or nap. Your brain processes what you wrote — it is not wasted time.</p></div>
+      </div>
+    </div>
+
+    <h2>Chapter Outline Template and Word Targets</h2>
+    <p>Before writing a single chapter, know exactly what it argues, what evidence it uses, and how many words you are aiming for. Notice the <strong>Introduction is written last</strong> (Days 23–24) — only once your full argument is formed can you properly frame it.</p>
+
+    <table class="cmp-table">
+      <thead><tr><th>Chapter</th><th>Core Purpose</th><th>Words</th><th>Days</th></tr></thead>
+      <tbody>
+        <tr><td><span class="ch-num">01</span>Introduction</td><td>State your question; preview the argument</td><td><span class="wc-tag">800–1,000</span></td><td><span class="day-tag">23–24</span></td></tr>
+        <tr><td><span class="ch-num">02</span>Literature Review</td><td>Map scholarship; position your work</td><td><span class="wc-tag">2,000–2,500</span></td><td><span class="day-tag">8–11</span></td></tr>
+        <tr><td><span class="ch-num">03</span>Methodology</td><td>Explain data collection and approach</td><td><span class="wc-tag">1,000–1,500</span></td><td><span class="day-tag">12–14</span></td></tr>
+        <tr><td><span class="ch-num">04</span>Findings</td><td>Present data clearly — no interpretation yet</td><td><span class="wc-tag">1,500–2,000</span></td><td><span class="day-tag">15–18</span></td></tr>
+        <tr><td><span class="ch-num">05</span>Discussion</td><td>Interpret findings; connect back to literature</td><td><span class="wc-tag">2,000–2,500</span></td><td><span class="day-tag">19–22</span></td></tr>
+        <tr><td><span class="ch-num">06</span>Conclusion</td><td>Summarise argument, limits, future research</td><td><span class="wc-tag">600–800</span></td><td><span class="day-tag">25</span></td></tr>
+      </tbody>
+    </table>
+
+    <h2>Reference Managers vs AI Tools: When to Use What</h2>
+    <p>Use <strong>Zotero, Mendeley, or EndNote</strong> from Day 1 of your research phase. Every source you read should be saved immediately with full citation details — this prevents the frantic bibliography scramble in the final days.</p>
+    <p>AI tools can legitimately help with brainstorming, paraphrasing, and restructuring sentences — but they should never generate content you present as your original analysis. Use AI to think more clearly, not to think on your behalf. Always check your university's policy first.</p>
+
+    <div class="warn-box">
+      <h4 class="text-sm font-bold mb-2" style="color:#8a5a00">⚠️ Practical Rule</h4>
+      <p class="text-sm" style="color:#6b4a00">If AI generated the idea or the evidence, it cannot appear in your dissertation. If AI helped you express an idea you already had more clearly, that may be legitimate — provided your institution permits it.</p>
+    </div>
+
+    <img class="blog-img" src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=860&auto=format&fit=crop" alt="Laptop with research references"/>
+    <p class="img-caption">A reference manager saves hours of bibliography work — set it up on Day 1 and never look back.</p>
+
+    <h2>4 Habits That Actually Move the Needle</h2>
+    <div class="grid md:grid-cols-2 gap-4 my-5">
+      <div class="tip-card"><span class="text-xl block mb-2">🔇</span><h4>Eliminate Distractions Structurally</h4><p>Use Cold Turkey or Freedom during writing sprints. One notification costs 23 minutes of focus recovery — the research confirms it.</p></div>
+      <div class="tip-card"><span class="text-xl block mb-2">📊</span><h4>Track Your Word Count Daily</h4><p>A simple spreadsheet: date, words written, cumulative total. Watching the number climb is motivating and exposes slippage early.</p></div>
+      <div class="tip-card"><span class="text-xl block mb-2">🗣️</span><h4>Read Every Draft Aloud</h4><p>Your ear catches what your eye misses — clunky transitions, circular logic, sentences that are far too long. Do this for every chapter.</p></div>
+      <div class="tip-card"><span class="text-xl block mb-2">⚡</span><h4>Write Your Easiest Section First</h4><p>Don't begin with the Introduction — it's the hardest chapter. Start where you know most. Early momentum is the most underrated tool.</p></div>
+    </div>
+
+    <div class="pull-quote">
+      <blockquote class="text-white italic text-lg leading-relaxed relative z-10">"A dissertation is not written in a single heroic act of inspiration. It is built, one disciplined session at a time, by a student who kept showing up."</blockquote>
+      <cite class="block mt-4 text-xs text-white/50 not-italic tracking-wider">— The principle every successful graduate student eventually learns</cite>
+    </div>
+
+    <h2>Before You Close This Tab</h2>
+    <p>You now have a 30-day plan, a daily schedule, a chapter template, and a Pomodoro system. That is everything you need to begin today. Remember: <strong>first drafts are supposed to be rough</strong> — their only job is to exist. <strong>Protect your sleep</strong> — eight hours is part of your methodology. And <strong>submit on time</strong> — an imperfect submitted dissertation is infinitely better than a perfect theoretical one.</p>
+    <p>Now open your document. Start with the chapter you know best. Set a 25-minute timer. Write badly if you have to — and clean it up in Phase 3.</p>
+
+  </article>
+</div>
+</main>
+
+<footer class="bg-slate-900 text-slate-300 py-12 mt-auto relative">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-4 gap-10">
+      <div>
+        <div class="flex items-center gap-3 text-white text-2xl font-bold mb-4">
+          <i class="fas fa-graduation-cap"></i>
+          Stack Assignment
+        </div>
+        <p class="text-sm opacity-90 leading-relaxed">
+          Professional academic writing & assignment assistance.<br>
+          Providing model / reference papers only.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="services.html" class="hover:text-white transition">Services</a></li>
+          <li><a href="pricing.html"  class="hover:text-white transition">Pricing</a></li>
+          <li><a href="samples.html"  class="hover:text-white transition">Samples</a></li>
+          <li><a href="blog.html"     class="hover:text-white transition">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4">Support</h4>
+        <p class="text-sm mb-1">24/7 Assistance</p>
+        <a href="tel:+919126943297"    class="block hover:text-white transition">+91-91269-43297</a>
+        <a href="/cdn-cgi/l/email-protection#2a595e4b49414b5959434d44474f445e6a4d474b434604494547" class="block hover:text-white transition"><span class="__cf_email__" data-cfemail="5c2f283d3f373d2f2f353b32313932281c3b313d3530723f3331">[email&#160;protected]</span></a>
+      </div>
+
+      <div>
+        <h4 class="text-white font-semibold mb-4">Legal</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href="#" class="hover:text-white transition">Terms of Service</a></li>
+          <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+          <li><a href="#" class="hover:text-white transition">Academic Integrity</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-12 pt-8 border-t border-slate-700 text-center text-sm opacity-75">
+      © 2026 Stack Assignment. All rights reserved.
+    </div>
+  </div>
+
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-[100] flex items-center gap-3 group">
+    <!-- Tooltip on hover -->
+    <div class="absolute right-20 bottom-1/2 translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 bg-black/80 text-white text-sm px-4 py-2 rounded-lg whitespace-nowrap pointer-events-none shadow-lg">
+      Chat with us on WhatsApp!
+    </div>
+
+    <!-- WhatsApp button -->
+    <a 
+      href="https://wa.me/919126943297?text=Hi%2C%20I%20need%20help%20with%20my%20assignment%20%E2%80%93%20can%20you%20help%3F%20Please%20tell%20me%20the%20subject%2C%20deadline%20and%20word%20count."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="flex items-center justify-center w-16 h-16 bg-[#25D366] hover:bg-[#20b858] text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-110 hover:shadow-green-500/40 active:scale-95"
+      aria-label="Chat on WhatsApp"
+    >
+      <i class="fab fa-whatsapp text-4xl"></i>
+    </a>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+// ──────────────────────────────────────────────
+// Dark mode & mobile menu logic
+// ──────────────────────────────────────────────
+
+function initThemeAndMenu() {
+  const toggle = document.getElementById('theme-toggle');
+  const icon   = document.getElementById('theme-icon');
+  const html   = document.documentElement;
+
+  if (!toggle || !icon) return;
+
+  function setTheme(isDark) {
+    html.classList.toggle('dark', isDark);
+    icon.classList.toggle('fa-moon', !isDark);
+    icon.classList.toggle('fa-sun',   isDark);
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
+  }
+
+  const saved = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  setTheme(saved ? saved === 'dark' : prefersDark);
+
+  toggle.addEventListener('click', () => {
+    setTheme(!html.classList.contains('dark'));
+  });
+
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  if (btn && menu) {
+    btn.addEventL
