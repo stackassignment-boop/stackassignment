@@ -1,0 +1,192 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DATABASE_URL")
+}
+
+// User model - supports both customers and admins
+model User {
+  id            String     @id @default(cuid())
+  email         String     @unique
+  password      String
+  name          String?
+  phone         String?
+  role          String     @default("customer") // "customer", "admin"
+  avatar        String?
+  isActive      Boolean    @default(true)
+  lastLoginAt   DateTime?
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @updatedAt
+  
+  // Relations
+  orders        Order[]
+  inquiries     Inquiry[]
+  blogPosts     Blog[]
+}
+
+// Order model - for academic writing orders
+model Order {
+  id              String    @id @default(cuid())
+  orderNumber     String    @unique
+  customerId      String
+  
+  // Order details
+  title           String
+  description     String
+  subject         String
+  academicLevel   String    // "high_school", "bachelor", "master", "phd"
+  paperType       String    // "essay", "research_paper", "dissertation", "thesis", "coursework", "other"
+  pages           Int
+  words           Int?
+  
+  // Pricing
+  pricePerPage    Float
+  urgencyMultiplier Float
+  totalPrice      Float
+  currency        String    @default("INR")
+  
+  // Deadline & Status
+  deadline        DateTime
+  status          String    @default("pending") // "pending", "confirmed", "in_progress", "review", "completed", "cancelled", "refunded"
+  paymentStatus   String    @default("pending") // "pending", "paid", "refunded"
+  
+  // Additional info
+  requirements    String?   // JSON string for additional requirements
+  attachments     String?   // JSON array of file URLs
+  notes           String?
+  
+  // Admin fields
+  assignedWriter  String?
+  completedAt     DateTime?
+  deliveredAt     DateTime?
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  // Relations
+  customer        User      @relation(fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+// Service model - services offered by Stack Assignment
+model Service {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  description     String
+  shortDescription String?
+  icon            String?
+  image           String?
+  features        String?   // JSON array of features
+  pricing         String?   // JSON object for pricing info
+  isActive        Boolean   @default(true)
+  order           Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// Blog model - blog posts
+model Blog {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  excerpt         String?
+  content         String
+  featuredImage   String?
+  category        String?
+  tags            String?   // JSON array of tags
+  authorId        String
+  isPublished     Boolean   @default(false)
+  publishedAt     DateTime?
+  viewCount       Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  // Relations
+  author          User      @relation(fields: [authorId], references: [id], onDelete: Cascade)
+}
+
+// Inquiry model - contact form submissions
+model Inquiry {
+  id              String    @id @default(cuid())
+  name            String
+  email           String
+  phone           String?
+  subject         String?
+  message         String
+  status          String    @default("new") // "new", "in_progress", "resolved", "closed"
+  priority        String    @default("normal") // "low", "normal", "high", "urgent"
+  source          String    @default("website") // "website", "whatsapp", "email", "phone"
+  
+  // Admin fields
+  assignedTo      String?
+  notes           String?
+  respondedAt     DateTime?
+  
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  
+  // Relations
+  user            User?     @relation(fields: [assignedTo], references: [id], onDelete: SetNull)
+}
+
+// Sample model - sample papers
+model Sample {
+  id              String    @id @default(cuid())
+  title           String
+  slug            String    @unique
+  description     String?
+  subject         String?
+  academicLevel   String?
+  paperType       String?
+  pages           Int?
+  content         String?   // Could be markdown or HTML content
+  fileUrl         String?
+  isPublished     Boolean   @default(true)
+  viewCount       Int       @default(0)
+  downloadCount   Int       @default(0)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// Testimonial model - customer reviews
+model Testimonial {
+  id              String    @id @default(cuid())
+  customerName    String
+  customerTitle   String?
+  avatar          String?
+  rating          Int       @default(5)
+  content         String
+  isApproved      Boolean   @default(false)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// Pricing tier model - for different pricing options
+model PricingTier {
+  id              String    @id @default(cuid())
+  name            String
+  academicLevel   String
+  pricePerPage    Float
+  currency        String    @default("INR")
+  description     String?
+  isActive        Boolean   @default(true)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+// Settings model - for site configuration
+model Setting {
+  id              String    @id @default(cuid())
+  key            String    @unique
+  value          String    // JSON string for complex values
+  description    String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+}
