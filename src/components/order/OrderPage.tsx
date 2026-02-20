@@ -1,10 +1,11 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
+import { CheckCircle, Loader2 } from 'lucide-react';
 
 interface OrderPageProps {
   onNavigate?: (page: string) => void;
@@ -15,6 +16,14 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
   const [pages, setPages] = useState(1);
   const [files, setFiles] = useState<File[]>([]);
   const [expertCount, setExpertCount] = useState(178);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [orderNumber, setOrderNumber] = useState('');
+  const [error, setError] = useState('');
+  const [loadingUser, setLoadingUser] = useState(true);
+  const [isSignedIn, setIsSignedIn] = useState(false);
+  const [uploadingFiles, setUploadingFiles] = useState(false);
+  
   const [formData, setFormData] = useState({
     email: '',
     phone: '',
@@ -27,6 +36,41 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
     terms: false
   });
 
+  // Fetch user session on mount to autofill email
+  useEffect(() => {
+    const fetchUserSession = async () => {
+      try {
+        const res = await fetch('/api/auth/session');
+        if (res.ok) {
+          const data = await res.json();
+          if (data?.user?.email) {
+            setFormData(prev => ({
+              ...prev,
+              email: data.user.email
+            }));
+            setIsSignedIn(true);
+            // Also try to fetch profile for phone
+            const profileRes = await fetch('/api/student/profile');
+            if (profileRes.ok) {
+              const profileData = await profileRes.json();
+              if (profileData.profile?.phone) {
+                setFormData(prev => ({
+                  ...prev,
+                  phone: profileData.profile.phone.replace(/^\+91/, '')
+                }));
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Error fetching session:', err);
+      } finally {
+        setLoadingUser(false);
+      }
+    };
+    fetchUserSession();
+  }, []);
+
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files) {
       setFiles(Array.from(e.target.files));
@@ -35,10 +79,144 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Thank you! Your order has been submitted. We will contact you shortly via email and phone.');
+    setError('');
+    setSubmitting(true);
+
+    try {
+      // Upload files first if any
+      let uploadedFiles: string[] = [];
+      if (files.length > 0) {
+        setUploadingFiles(true);
+        console.log('[OrderForm] Uploading files:', files.map(f => ({ name: f.name, size: f.size })));
+        
+        const formDataFiles = new FormData();
+        files.forEach((file) => {
+          formDataFiles.append('files', file);
+        });
+        
+        console.log('[OrderForm] FormData created, sending upload request...');
+        
+        try {
+          const uploadRes = await fetch('/api/upload', {
+            method: 'POST',
+            body: formDataFiles,
+          });
+          
+          console.log('[OrderForm] Upload response status:', uploadRes.status);
+          
+          if (uploadRes.ok) {
+            const uploadData = await uploadRes.json();
+            uploadedFiles = uploadData.urls || [];
+            console.log('[OrderForm] Files uploaded successfully:', uploadedFiles);
+          } else {
+            const uploadError = await uploadRes.json();
+            console.error('[OrderForm] Upload failed:', uploadError);
+            setError(uploadError.error || 'Failed to upload files. Please try again.');
+            setSubmitting(false);
+            setUploadingFiles(false);
+            return;
+          }
+        } catch (uploadErr) {
+          console.error('[OrderForm] Upload error:', uploadErr);
+          setError('Failed to upload files. Please check your connection and try again.');
+          setSubmitting(false);
+          setUploadingFiles(false);
+          return;
+        }
+        
+        setUploadingFiles(false);
+      }
+
+      console.log('Submitting order with attachments:', uploadedFiles);
+      
+      const response = await fetch('/api/orders/public', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          phone: `${formData.timezone}${formData.phone}`,
+          subject: formData.subject,
+          description: formData.description,
+          deadline: formData.deadlineDate,
+          deadlineTime: formData.deadlineTime,
+          pages: pages,
+          service: service,
+          coupon: formData.coupon,
+          attachments: uploadedFiles,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        setOrderNumber(data.order.orderNumber);
+        setSubmitted(true);
+      } else {
+        setError(data.error || 'Failed to submit order. Please try again.');
+      }
+    } catch (err) {
+      console.error('Order submission error:', err);
+      setError('An error occurred. Please try again.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const wordCount = pages * 250;
+
+  // Success state
+  if (submitted) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 dark:from-slate-950 dark:to-slate-900 py-10 md:py-14">
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 text-center">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-xl p-8 md:p-12">
+            <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6">
+              <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400" />
+            </div>
+            <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              Order Submitted Successfully!
+            </h1>
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
+              Thank you for your order. We will contact you shortly via email and phone.
+            </p>
+            <div className="bg-gray-50 dark:bg-slate-700 rounded-xl p-4 mb-6">
+              <p className="text-sm text-gray-500 dark:text-gray-400 mb-1">Your Order Number</p>
+              <p className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">{orderNumber}</p>
+            </div>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button
+                onClick={() => onNavigate?.('home')}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-8"
+              >
+                Back to Home
+              </Button>
+              <Button
+                onClick={() => {
+                  setSubmitted(false);
+                  setFormData({
+                    email: '',
+                    phone: '',
+                    subject: '',
+                    deadlineDate: '',
+                    deadlineTime: '12:00',
+                    timezone: '+91',
+                    description: '',
+                    coupon: '',
+                    terms: false
+                  });
+                  setPages(1);
+                }}
+                variant="outline"
+                className="px-8"
+              >
+                Place Another Order
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-indigo-50 dark:from-slate-950 dark:to-slate-900 py-10 md:py-14">
@@ -77,6 +255,15 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
           </div>
         </div>
 
+        {/* Error Message */}
+        {error && (
+          <div className="max-w-6xl mx-auto mb-6">
+            <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-4 rounded-xl text-center">
+              {error}
+            </div>
+          </div>
+        )}
+
         {/* Order Form */}
         <form onSubmit={handleSubmit} className="grid lg:grid-cols-2 gap-8 lg:gap-10">
           {/* Left Column */}
@@ -90,8 +277,14 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
                   required
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="Enter email for communication"
+                  placeholder={loadingUser ? "Loading..." : "Enter email for communication"}
+                  disabled={loadingUser}
+                  readOnly={isSignedIn}
+                  className={isSignedIn ? "bg-gray-100 dark:bg-slate-700 cursor-not-allowed" : ""}
                 />
+                {isSignedIn && !loadingUser && (
+                  <p className="text-xs text-green-600 mt-1.5">✓ Signed in as {formData.email}</p>
+                )}
               </CardContent>
             </Card>
 
@@ -219,10 +412,29 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
                 <div className="mt-4">
                   <label className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg font-semibold text-sm cursor-pointer transition">
                     📎 Add Files
-                    <input type="file" multiple className="hidden" onChange={handleFileChange} />
+                    <input type="file" multiple className="hidden" onChange={handleFileChange} accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.gif,.txt,.zip" />
                   </label>
                   {files.length > 0 && (
-                    <div className="mt-3 text-sm text-green-600">✓ {files.length} file(s) selected</div>
+                    <div className="mt-3 space-y-2">
+                      <p className="text-sm text-green-600 font-medium">✓ {files.length} file(s) selected:</p>
+                      <div className="space-y-1">
+                        {files.map((file, index) => (
+                          <div key={index} className="flex items-center justify-between bg-gray-50 dark:bg-slate-700 rounded-lg px-3 py-2">
+                            <span className="text-sm text-gray-700 dark:text-gray-300 truncate max-w-[200px]">{file.name}</span>
+                            <div className="flex items-center gap-2">
+                              <span className="text-xs text-gray-500">{(file.size / 1024).toFixed(1)} KB</span>
+                              <button
+                                type="button"
+                                onClick={() => setFiles(files.filter((_, i) => i !== index))}
+                                className="text-red-500 hover:text-red-700 text-sm"
+                              >
+                                ✕
+                              </button>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
 
@@ -264,9 +476,17 @@ export default function OrderPage({ onNavigate }: OrderPageProps) {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="mt-6 w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-extrabold py-6 rounded-xl text-lg shadow-lg"
+                  disabled={submitting}
+                  className="mt-6 w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-extrabold py-6 rounded-xl text-lg shadow-lg disabled:opacity-50"
                 >
-                  Submit Order
+                  {submitting ? (
+                    <span className="flex items-center gap-2">
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      {uploadingFiles ? 'Uploading files...' : 'Submitting...'}
+                    </span>
+                  ) : (
+                    'Submit Order'
+                  )}
                 </Button>
               </CardContent>
             </Card>
